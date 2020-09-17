@@ -157,7 +157,7 @@ class Migration(migrations.Migration):
             name="name",
             field=models.TextField(
                 blank=True,
-                default="",
+                null=True,
                 help_text="Name of the coupon displayed to customers on for instance invoices or receipts.",
                 max_length=5000,
             ),
@@ -993,7 +993,7 @@ class Migration(migrations.Migration):
             name="account_holder_name",
             field=models.TextField(
                 blank=True,
-                default="",
+                null=True,
                 help_text="The name of the person or business that owns the bank account.",
                 max_length=5000,
             ),
@@ -1003,7 +1003,7 @@ class Migration(migrations.Migration):
             name="address_city",
             field=models.TextField(
                 blank=True,
-                default="",
+                null=True,
                 help_text="City/District/Suburb/Town/Village.",
                 max_length=5000,
             ),
@@ -1013,7 +1013,7 @@ class Migration(migrations.Migration):
             name="address_country",
             field=models.TextField(
                 blank=True,
-                default="",
+                null=True,
                 help_text="Billing address country.",
                 max_length=5000,
             ),
@@ -1023,7 +1023,7 @@ class Migration(migrations.Migration):
             name="address_line1",
             field=models.TextField(
                 blank=True,
-                default="",
+                null=True,
                 help_text="Street address/PO Box/Company name.",
                 max_length=5000,
             ),
@@ -1044,7 +1044,7 @@ class Migration(migrations.Migration):
             name="address_line2",
             field=models.TextField(
                 blank=True,
-                default="",
+                null=True,
                 help_text="Apartment/Suite/Unit/Building.",
                 max_length=5000,
             ),
@@ -1054,7 +1054,7 @@ class Migration(migrations.Migration):
             name="address_state",
             field=models.TextField(
                 blank=True,
-                default="",
+                null=True,
                 help_text="State/County/Province/Region.",
                 max_length=5000,
             ),
@@ -1063,7 +1063,7 @@ class Migration(migrations.Migration):
             model_name="card",
             name="address_zip",
             field=models.TextField(
-                blank=True, default="", help_text="ZIP or postal code.", max_length=5000
+                blank=True, null=True, help_text="ZIP or postal code.", max_length=5000
             ),
         ),
         migrations.AlterField(
@@ -1122,7 +1122,7 @@ class Migration(migrations.Migration):
             model_name="card",
             name="name",
             field=models.TextField(
-                blank=True, default="", help_text="Cardholder name.", max_length=5000
+                blank=True, null=True, help_text="Cardholder name.", max_length=5000
             ),
         ),
         migrations.AlterField(
@@ -1152,7 +1152,7 @@ class Migration(migrations.Migration):
             name="failure_message",
             field=models.TextField(
                 blank=True,
-                default="",
+                null=True,
                 help_text="Message to user further explaining reason for charge failure if available.",
                 max_length=5000,
             ),
@@ -1162,7 +1162,7 @@ class Migration(migrations.Migration):
             name="receipt_email",
             field=models.TextField(
                 blank=True,
-                default="",
+                null=True,
                 help_text="The email address that the receipt for this charge was sent to.",
                 max_length=800,
             ),
@@ -1219,12 +1219,12 @@ class Migration(migrations.Migration):
         migrations.AlterField(
             model_name="customer",
             name="email",
-            field=models.TextField(blank=True, default="", max_length=5000),
+            field=models.TextField(blank=True, null=True, max_length=5000),
         ),
         migrations.AlterField(
             model_name="event",
             name="idempotency_key",
-            field=models.TextField(blank=True, default=""),
+            field=models.TextField(blank=True, null=True),
         ),
         migrations.AlterField(
             model_name="event",
@@ -1241,7 +1241,7 @@ class Migration(migrations.Migration):
             name="hosted_invoice_url",
             field=models.TextField(
                 blank=True,
-                default="",
+                null=True,
                 help_text="The URL for the hosted invoice page, which allows customers to view and pay an invoice. If the invoice has not been frozen yet, this will be null.",
                 max_length=799,
             ),
@@ -1251,7 +1251,7 @@ class Migration(migrations.Migration):
             name="invoice_pdf",
             field=models.TextField(
                 blank=True,
-                default="",
+                null=True,
                 help_text="The link to download the PDF for the invoice. If the invoice has not been frozen yet, this will be null.",
                 max_length=799,
             ),
@@ -1291,8 +1291,8 @@ class Migration(migrations.Migration):
             model_name="payout",
             name="failure_message",
             field=models.TextField(
+                null=True,
                 blank=True,
-                default="",
                 help_text="Message to user further explaining reason for payout failure if available.",
             ),
         ),
@@ -1333,7 +1333,7 @@ class Migration(migrations.Migration):
             name="nickname",
             field=models.TextField(
                 blank=True,
-                default="",
+                null=True,
                 help_text="A brief description of the plan, hidden from customers.",
                 max_length=5000,
             ),
@@ -1343,7 +1343,7 @@ class Migration(migrations.Migration):
             name="caption",
             field=models.TextField(
                 blank=True,
-                default="",
+                null=True,
                 help_text="A short one-line description of the product, meant to be displayableto the customer. Only applicable to products of `type=good`.",
                 max_length=5000,
             ),

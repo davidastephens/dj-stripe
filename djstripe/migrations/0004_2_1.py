@@ -309,6 +309,7 @@ class Migration(migrations.Migration):
                     "client_secret",
                     models.TextField(
                         blank=True,
+                        null=True,
                         help_text="The client secret of this SetupIntent. Used for client-side retrieval using a publishable key.",
                         max_length=5000,
                     ),
@@ -493,10 +494,10 @@ class Migration(migrations.Migration):
                 (
                     "description",
                     models.TextField(
-                        default="",
                         help_text="An arbitrary string attached to the object. Often useful for displaying to users.",
                         max_length=1000,
                         blank=True,
+                        null=True,
                     ),
                 ),
                 (
@@ -680,7 +681,7 @@ class Migration(migrations.Migration):
             name="name",
             field=models.TextField(
                 blank=True,
-                default="",
+                null=True,
                 help_text="The customer's full name or business name.",
                 max_length=5000,
             ),
@@ -690,7 +691,7 @@ class Migration(migrations.Migration):
             name="phone",
             field=models.TextField(
                 blank=True,
-                default="",
+                null=True,
                 help_text="The customer's phone number.",
                 max_length=5000,
             ),
@@ -788,7 +789,7 @@ class Migration(migrations.Migration):
             name="receipt_url",
             field=models.TextField(
                 blank=True,
-                default="",
+                null=True,
                 help_text="This is the URL to view the receipt for this charge. The receipt is kept up-to-date to the latest state of the charge, including any refunds. If the charge is for an Invoice, the receipt will be stylized as an Invoice receipt.",
                 max_length=5000,
             ),
@@ -849,6 +850,7 @@ class Migration(migrations.Migration):
                     "cancel_url",
                     models.TextField(
                         blank=True,
+                        null=True,
                         help_text="The URL the customer will be directed to if theydecide to cancel payment and return to your website.",
                         max_length=5000,
                     ),
@@ -857,6 +859,7 @@ class Migration(migrations.Migration):
                     "client_reference_id",
                     models.TextField(
                         blank=True,
+                        null=True,
                         help_text="A unique string to reference the Checkout Session.This can be a customer ID, a cart ID, or similar, andcan be used to reconcile the session with your internal systems.",
                         max_length=5000,
                     ),
@@ -904,6 +907,7 @@ class Migration(migrations.Migration):
                     "success_url",
                     models.TextField(
                         blank=True,
+                        null=True,
                         help_text="The URL the customer will be directed to after the payment or subscriptioncreation is successful.",
                         max_length=5000,
                     ),

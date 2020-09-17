@@ -16,70 +16,25 @@ class Migration(migrations.Migration):
     ]
 
     operations = [
+        migrations.RemoveField(model_name="account", name="business_name",),
+        migrations.RemoveField(model_name="account", name="business_primary_color",),
+        migrations.RemoveField(model_name="account", name="business_url",),
+        migrations.RemoveField(model_name="account", name="debit_negative_balances",),
+        migrations.RemoveField(model_name="account", name="decline_charge_on",),
+        migrations.RemoveField(model_name="account", name="display_name",),
+        migrations.RemoveField(model_name="account", name="legal_entity",),
+        migrations.RemoveField(model_name="account", name="payout_schedule",),
         migrations.RemoveField(
-            model_name="account",
-            name="business_name",
+            model_name="account", name="payout_statement_descriptor",
         ),
-        migrations.RemoveField(
-            model_name="account",
-            name="business_primary_color",
-        ),
-        migrations.RemoveField(
-            model_name="account",
-            name="business_url",
-        ),
-        migrations.RemoveField(
-            model_name="account",
-            name="debit_negative_balances",
-        ),
-        migrations.RemoveField(
-            model_name="account",
-            name="decline_charge_on",
-        ),
-        migrations.RemoveField(
-            model_name="account",
-            name="display_name",
-        ),
-        migrations.RemoveField(
-            model_name="account",
-            name="legal_entity",
-        ),
-        migrations.RemoveField(
-            model_name="account",
-            name="payout_schedule",
-        ),
-        migrations.RemoveField(
-            model_name="account",
-            name="payout_statement_descriptor",
-        ),
-        migrations.RemoveField(
-            model_name="account",
-            name="statement_descriptor",
-        ),
-        migrations.RemoveField(
-            model_name="account",
-            name="support_email",
-        ),
-        migrations.RemoveField(
-            model_name="account",
-            name="support_phone",
-        ),
-        migrations.RemoveField(
-            model_name="account",
-            name="support_url",
-        ),
-        migrations.RemoveField(
-            model_name="account",
-            name="timezone",
-        ),
-        migrations.RemoveField(
-            model_name="account",
-            name="verification",
-        ),
+        migrations.RemoveField(model_name="account", name="statement_descriptor",),
+        migrations.RemoveField(model_name="account", name="support_email",),
+        migrations.RemoveField(model_name="account", name="support_phone",),
+        migrations.RemoveField(model_name="account", name="support_url",),
+        migrations.RemoveField(model_name="account", name="timezone",),
+        migrations.RemoveField(model_name="account", name="verification",),
         migrations.RenameField(
-            model_name="invoice",
-            old_name="billing",
-            new_name="collection_method",
+            model_name="invoice", old_name="billing", new_name="collection_method",
         ),
         migrations.AddField(
             model_name="invoice",
@@ -96,6 +51,7 @@ class Migration(migrations.Migration):
             name="account_name",
             field=models.TextField(
                 blank=True,
+                null=True,
                 help_text="The public name of the business associated with this invoice, most often the business creating the invoice.",
                 max_length=5000,
             ),
@@ -125,6 +81,7 @@ class Migration(migrations.Migration):
             name="customer_email",
             field=models.TextField(
                 blank=True,
+                null=True,
                 help_text="The customer’s email. Until the invoice is finalized, this field will equal customer.email. Once the invoice is finalized, this field will no longer be updated.",
                 max_length=5000,
             ),
@@ -134,6 +91,7 @@ class Migration(migrations.Migration):
             name="customer_name",
             field=models.TextField(
                 blank=True,
+                null=True,
                 help_text="The customer’s name. Until the invoice is finalized, this field will equal customer.name. Once the invoice is finalized, this field will no longer be updated.",
                 max_length=5000,
             ),
@@ -143,6 +101,7 @@ class Migration(migrations.Migration):
             name="customer_phone",
             field=models.TextField(
                 blank=True,
+                null=True,
                 help_text="The customer’s phone number. Until the invoice is finalized, this field will equal customer.phone. Once the invoice is finalized, this field will no longer be updated.",
                 max_length=5000,
             ),
@@ -184,6 +143,7 @@ class Migration(migrations.Migration):
             name="footer",
             field=models.TextField(
                 blank=True,
+                null=True,
                 help_text="Footer displayed on the invoice.",
                 max_length=5000,
             ),
@@ -392,9 +352,7 @@ class Migration(migrations.Migration):
                 max_length=9,
             ),
         ),
-        migrations.DeleteModel(
-            name="UpcomingInvoice",
-        ),
+        migrations.DeleteModel(name="UpcomingInvoice",),
         migrations.CreateModel(
             name="UpcomingInvoice",
             fields=[
@@ -450,6 +408,7 @@ class Migration(migrations.Migration):
                     "account_name",
                     models.TextField(
                         blank=True,
+                        null=True,
                         help_text="The public name of the business associated with this invoice, most often the business creating the invoice.",
                         max_length=5000,
                     ),
@@ -555,6 +514,7 @@ class Migration(migrations.Migration):
                     "customer_email",
                     models.TextField(
                         blank=True,
+                        null=True,
                         help_text="The customer’s email. Until the invoice is finalized, this field will equal customer.email. Once the invoice is finalized, this field will no longer be updated.",
                         max_length=5000,
                     ),
@@ -563,6 +523,7 @@ class Migration(migrations.Migration):
                     "customer_name",
                     models.TextField(
                         blank=True,
+                        null=True,
                         help_text="The customer’s name. Until the invoice is finalized, this field will equal customer.name. Once the invoice is finalized, this field will no longer be updated.",
                         max_length=5000,
                     ),
@@ -571,6 +532,7 @@ class Migration(migrations.Migration):
                     "customer_phone",
                     models.TextField(
                         blank=True,
+                        null=True,
                         help_text="The customer’s phone number. Until the invoice is finalized, this field will equal customer.phone. Once the invoice is finalized, this field will no longer be updated.",
                         max_length=5000,
                     ),
@@ -611,6 +573,7 @@ class Migration(migrations.Migration):
                     "footer",
                     models.TextField(
                         blank=True,
+                        null=True,
                         help_text="Footer displayed on the invoice.",
                         max_length=5000,
                     ),
@@ -627,7 +590,7 @@ class Migration(migrations.Migration):
                     "hosted_invoice_url",
                     models.TextField(
                         blank=True,
-                        default="",
+                        null=True,
                         help_text="The URL for the hosted invoice page, which allows customers to view and pay an invoice. If the invoice has not been frozen yet, this will be null.",
                         max_length=799,
                     ),
@@ -636,7 +599,7 @@ class Migration(migrations.Migration):
                     "invoice_pdf",
                     models.TextField(
                         blank=True,
-                        default="",
+                        null=True,
                         help_text="The link to download the PDF for the invoice. If the invoice has not been frozen yet, this will be null.",
                         max_length=799,
                     ),
